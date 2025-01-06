@@ -95,19 +95,15 @@ index 4604a83b8428fc1c9359f6208a5b293a2a6488a9..1144f8864cebd8d6798998007aeb141f
                              if (!tickRateManager.isEntityFrozen(entity)) {
                                  profilerFiller.push("checkDespawn");
 diff --git a/net/minecraft/world/entity/Entity.java b/net/minecraft/world/entity/Entity.java
-index bdd76ced0fc3618c9ded7b85080525ab680c4845..405d6e53655b83b48448635edcc596b838801dde 100644
+index c67e0fec95a32588a06e9f0c3dc386475166bdda..12dc601bedab80d4d72e12f671c11b2bd968a5c6 100644
 --- a/net/minecraft/world/entity/Entity.java
 +++ b/net/minecraft/world/entity/Entity.java
-@@ -343,12 +343,8 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
+@@ -343,6 +343,8 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
      public boolean isTemporarilyActive;
      public long activatedImmunityTick = Integer.MIN_VALUE;
      public final BlockPos.MutableBlockPos cachedBlockPos = new BlockPos.MutableBlockPos(); // Pufferfish - reduce entity allocations
--<<<<<<< HEAD
--=======
-     public boolean activatedPriorityReset = false; // Pufferfish - DAB
-     public int activatedPriority = gg.pufferfish.pufferfish.PufferfishConfig.maximumActivationPrio; // Pufferfish - DAB (golf score)
--    public final BlockPos.MutableBlockPos cachedBlockPos = new BlockPos.MutableBlockPos(); // Pufferfish - reduce entity allocations
-->>>>>>> a414c32 (fixup! pufferfish File Patches)
++    public boolean activatedPriorityReset = false; // Pufferfish - DAB
++    public int activatedPriority = gg.pufferfish.pufferfish.PufferfishConfig.maximumActivationPrio; // Pufferfish - DAB (golf score)
  
      public void inactiveTick() {
      }
