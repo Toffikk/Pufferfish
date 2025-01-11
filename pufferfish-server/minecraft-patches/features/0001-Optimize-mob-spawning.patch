@@ -1,5 +1,5 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Tofik=20=E2=99=A1?= <slodkitofiK@gmail.com>
+From: Kevin Raneri <kevin.raneri@gmail.com>
 Date: Sat, 4 Jan 2025 00:40:39 +0100
 Subject: [PATCH] Optimize mob spawning
 
@@ -17,7 +17,7 @@ and, in my opinion, worth the low risk of minor mob-spawning-related
 inconsistencies.
 
 diff --git a/net/minecraft/server/MinecraftServer.java b/net/minecraft/server/MinecraftServer.java
-index 3217550e97af091a776ec97cad60fff1a568bd98..74cb4817d01471edd0f636f7a09c7966f9675e67 100644
+index e6d53451e252e83551736a7c17b05184aa23970a..ea4ab720101496114b22d12380813f6d60525d0d 100644
 --- a/net/minecraft/server/MinecraftServer.java
 +++ b/net/minecraft/server/MinecraftServer.java
 @@ -303,6 +303,7 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
