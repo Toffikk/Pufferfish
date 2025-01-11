@@ -1,6 +1,6 @@
 --- a/paper-server/build.gradle.kts
 +++ b/paper-server/build.gradle.kts
-@@ -20,9 +20,20 @@ paperweight {
+@@ -20,9 +_,20 @@
      minecraftVersion = providers.gradleProperty("mcVersion")
      // macheOldPath = file("F:\\Projects\\PaperTooling\\mache\\versions\\1.21.4\\src\\main\\java")
      // gitFilePatches = true
@@ -22,7 +22,7 @@
      }
  
      spigot {
-@@ -105,7 +116,21 @@ if (project.providers.gradleProperty("publishDevBundle").isPresent) {
+@@ -105,7 +_,21 @@
      }
  }
  
@@ -45,7 +45,7 @@
  configurations.named(log4jPlugins.compileClasspathConfigurationName) {
      extendsFrom(configurations.compileClasspath.get())
  }
-@@ -123,7 +148,7 @@ abstract class MockitoAgentProvider : CommandLineArgumentProvider {
+@@ -123,7 +_,7 @@
  }
  
  dependencies {
@@ -54,11 +54,11 @@
      implementation("ca.spottedleaf:concurrentutil:0.0.3")
      implementation("org.jline:jline-terminal-ffm:3.27.1") // use ffm on java 22+
      implementation("org.jline:jline-terminal-jni:3.27.1") // fall back to jni on java 21
-@@ -157,6 +182,13 @@ dependencies {
+@@ -157,6 +_,13 @@
      runtimeOnly("org.apache.maven.resolver:maven-resolver-connector-basic:1.9.18")
      runtimeOnly("org.apache.maven.resolver:maven-resolver-transport-http:1.9.18")
  
-+    // Pufferfish start
++    // Pufferfish start - config
 +    implementation("org.yaml:snakeyaml:1.32")
 +    implementation ("me.carleslc.Simple-YAML:Simple-Yaml:1.8.4") {
 +        exclude(group="org.yaml", module="snakeyaml")
@@ -68,11 +68,11 @@
      testImplementation("io.github.classgraph:classgraph:4.8.47") // For mob goal test
      testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
      testImplementation("org.junit.platform:junit-platform-suite-engine:1.10.0")
-@@ -180,6 +212,13 @@ dependencies {
+@@ -180,6 +_,13 @@
      implementation("me.lucko:spark-paper:1.10.119-SNAPSHOT")
  }
  
-+// Pufferfish Start
++// Pufferfish Start - SIMD Optimizations
 +tasks.withType<JavaCompile> {
 +    val compilerArgs = options.compilerArgs
 +    compilerArgs.add("--add-modules=jdk.incubator.vector")
@@ -82,7 +82,7 @@
  tasks.jar {
      manifest {
          val git = Git(rootProject.layout.projectDirectory.path)
-@@ -192,14 +231,14 @@ tasks.jar {
+@@ -192,14 +_,14 @@
          val gitBranch = git.exec(providers, "rev-parse", "--abbrev-ref", "HEAD").get().trim()
          attributes(
              "Main-Class" to "org.bukkit.craftbukkit.Main",
